@@ -19,7 +19,7 @@ const UserDetail = () => {
         <div className="container mx-auto px-6 py-8">
             {/* Page Title */}
             {/* back button */}
-            <div className='flex items-center  gap-4'>
+            <div className='flex items-center    gap-4'>
 
                 <Link to="/" className="text-primary mb-4 inline-block">
                     <IoIosArrowBack className='font-bold text-lg' />           </Link>
@@ -28,7 +28,7 @@ const UserDetail = () => {
 
             <div className="">
                 {/* Left Card - User Info */}
-                <div className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto">
+                <div className="bg-white shadow-md border-t-secondary border-t-4 rounded-lg p-6 max-w-lg mx-auto">
                     <div className="text-center mb-6">
                         {/* User Avatar */}
                         <div className="w-24 h-24 rounded-full mx-auto bg-secondary flex items-center justify-center">

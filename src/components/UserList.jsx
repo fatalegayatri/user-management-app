@@ -13,6 +13,18 @@ const UserList = () => {
     const { filteredUsers, loading, error } = useSelector(state => state.users);
     const [searchTerm, setSearchTerm] = useState('');
     const [showModel, setShowModel] = useState();
+    const [userData, setUserData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        website: '',
+        address: '',
+    });
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(userData);
+    };
+
 
 
     useEffect(() => {
@@ -35,7 +47,7 @@ const UserList = () => {
     return (
         <div className="container  mx-auto px-6 py-8">
             {/* Header Section */}
-            <div className="bg-white rounded-lg shadow-lg flex justify-between items-center p-5 mb-8">
+            <div className="bg-white rounded-lg shadow-lg flex justify-between items-center p-5 mb-8 sm:flex-row flex-col gap-2">
                 <h1 className="text-lg font-bold text-gray-800">Users</h1>
                 <input
                     type="text"
@@ -44,7 +56,7 @@ const UserList = () => {
                     onChange={handleSearch}
                     className="p-2 border rounded-lg focus:outline-none max-w-sm w-full   focus:ring-2 focus:ring-blue-500"
                 />
-                <div>
+                <div className='sm:w-auto w-full'>
                     <Button
                         onClick={() => setShowModel(true)}
                     >
@@ -95,7 +107,7 @@ const UserList = () => {
             </div>
             {
                 showModel && (
-                    <CreateUser setShowModel={setShowModel} />
+                    <CreateUser setShowModel={setShowModel} userData={userData} setUserData={setUserData} handleSubmit={handleSubmit} />
                 )
             }
         </div>

@@ -33,4 +33,4 @@ A responsive web application built with React.js, Redux Toolkit, React Router, a
 - Axios
 
 ## Deployment
-Deployed version available at: [Insert Deployment Link]
+Deployed version available at: [[Insert Deployment Link](https://user-management-app-tau-five.vercel.app/)]

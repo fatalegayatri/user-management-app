@@ -61,7 +61,7 @@ const UserList = () => {
                         <Link
                             to={`/user/${user.id}`}
                             key={user.id}
-                            className="bg-white rounded-lg border-2 transform transition-transform duration-700  hover:scale-[1.01] shadow-md hover:shadow-lg  hover:border-blue-100 hover:border-2"
+                            className="bg-white rounded-lg border-2 transform  duration-700  hover:scale-[1.01] shadow-md hover:shadow-lg  hover:border-primary transition-all  hover:border-2"
                         >
                             {/* User Header */}
                             <div className="p-5 flex items-center">

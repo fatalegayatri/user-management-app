@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FaEnvelope, FaPhone, FaGlobe, FaClock } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaGlobe, FaClock, FaBackward } from 'react-icons/fa';
+import { FaBackwardStep } from 'react-icons/fa6';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const UserDetail = () => {
     const { id } = useParams();
@@ -16,15 +18,21 @@ const UserDetail = () => {
     return (
         <div className="container mx-auto px-6 py-8">
             {/* Page Title */}
-            <h1 className="text-2xl font-bold text-gray-700 mb-6">User Details</h1>
+            {/* back button */}
+            <div className='flex items-center  gap-4'>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Link to="/" className="text-primary mb-4 inline-block">
+                    <IoIosArrowBack className='font-bold text-lg' />           </Link>
+                <h1 className="text-2xl font-bold text-gray-700 mb-6">User Details</h1>
+            </div>
+
+            <div className="">
                 {/* Left Card - User Info */}
-                <div className="bg-white shadow-md rounded-lg p-6">
+                <div className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto">
                     <div className="text-center mb-6">
                         {/* User Avatar */}
-                        <div className="w-24 h-24 rounded-full mx-auto bg-blue-100 flex items-center justify-center">
-                            <span className="text-4xl font-bold text-blue-600">
+                        <div className="w-24 h-24 rounded-full mx-auto bg-secondary flex items-center justify-center">
+                            <span className="text-4xl font-bold text-primary">
                                 {user.name.charAt(0)}
                             </span>
                         </div>

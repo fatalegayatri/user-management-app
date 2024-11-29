@@ -5,11 +5,15 @@ import { fetchUsers, filterUsers } from '../store/usersSlice';
 import { FaUser } from 'react-icons/fa';
 import { MdMailOutline, MdOutlinePhone } from 'react-icons/md';
 import { HiOutlineOfficeBuilding } from 'react-icons/hi';
+import CreateUser from './CreateUser';
+import Button from './common/Button';
 
 const UserList = () => {
     const dispatch = useDispatch();
     const { filteredUsers, loading, error } = useSelector(state => state.users);
     const [searchTerm, setSearchTerm] = useState('');
+    const [showModel, setShowModel] = useState();
+
 
     useEffect(() => {
         dispatch(fetchUsers());
@@ -29,7 +33,7 @@ const UserList = () => {
     if (error) return <div className="text-red-500 p-4">Error: {error}</div>;
 
     return (
-        <div className="container mx-auto px-6 py-8">
+        <div className="container  mx-auto px-6 py-8">
             {/* Header Section */}
             <div className="bg-white rounded-lg shadow-lg flex justify-between items-center p-5 mb-8">
                 <h1 className="text-lg font-bold text-gray-800">Users</h1>
@@ -40,9 +44,14 @@ const UserList = () => {
                     onChange={handleSearch}
                     className="p-2 border rounded-lg focus:outline-none max-w-sm w-full   focus:ring-2 focus:ring-blue-500"
                 />
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-all">
-                    Add User
-                </button>
+                <div>
+                    <Button
+                        onClick={() => setShowModel(true)}
+                    >
+                        Add User
+                    </Button>
+                </div>
+
             </div>
 
             {/* User Cards */}
@@ -52,17 +61,17 @@ const UserList = () => {
                         <Link
                             to={`/user/${user.id}`}
                             key={user.id}
-                            className="bg-white rounded-lg shadow-md hover:shadow-lg  hover:border-blue-100 hover:border-2"
+                            className="bg-white rounded-lg border-2 transform transition-transform duration-700  hover:scale-[1.01] shadow-md hover:shadow-lg  hover:border-blue-100 hover:border-2"
                         >
                             {/* User Header */}
                             <div className="p-5 flex items-center">
-                                <div className="w-12 h-12 bg-blue-100 text-gray-600 rounded-full flex items-center justify-center">
+                                <div className="w-12 h-12 bg-gray-100 text-secondary rounded-full flex items-center justify-center">
                                     <FaUser className="text-2xl" />
                                 </div>
                                 <div className="ml-4">
                                     <h2 className="text-lg font-semibold text-gray-800">{user.name}</h2>
                                     <p className="text-sm text-gray-500 flex items-center gap-1">
-                                        <MdMailOutline className="text-blue-500" />
+                                        <MdMailOutline className="text-primary" />
                                         {user.email}
                                     </p>
                                 </div>
@@ -71,11 +80,11 @@ const UserList = () => {
                             {/* User Details */}
                             <div className="px-5 py-3 border-t flex justify-between items-center ">
                                 <p className="text-sm text-gray-600 flex items-center gap-2">
-                                    <MdOutlinePhone className="text-blue-500" />
+                                    <MdOutlinePhone className="text-primary" />
                                     {user.phone}
                                 </p>
                                 <p className="text-sm text-gray-600 flex items-center gap-2 mt-2">
-                                    <HiOutlineOfficeBuilding className="text-blue-500" />
+                                    <HiOutlineOfficeBuilding className="text-primary" />
                                     {user.company.name}
                                 </p>
                             </div>
@@ -84,6 +93,11 @@ const UserList = () => {
                         </Link>
                     ))}
             </div>
+            {
+                showModel && (
+                    <CreateUser setShowModel={setShowModel} />
+                )
+            }
         </div>
     );
 };

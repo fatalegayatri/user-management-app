@@ -9,7 +9,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="bg-background min-h-screen">
+        <div className="bg-gray-100 min-h-screen">
           <Routes>
             <Route path="/" element={<UserList />} />
             <Route path="/user/:id" element={<UserDetail />} />

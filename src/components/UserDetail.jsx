@@ -1,8 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FaEnvelope, FaPhone, FaGlobe, FaClock, FaBackward } from 'react-icons/fa';
-import { FaBackwardStep } from 'react-icons/fa6';
 import { IoIosArrowBack } from 'react-icons/io';
 
 const UserDetail = () => {

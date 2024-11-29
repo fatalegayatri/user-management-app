@@ -54,7 +54,6 @@ const CreateUser = ({ setShowModel, userData, setUserData, handleSubmit }) => {
                         placeholder="Phone"
                     />
 
-                    {/* Website */}
                     <Input
                         name="website"
                         type="text"
@@ -62,7 +61,6 @@ const CreateUser = ({ setShowModel, userData, setUserData, handleSubmit }) => {
                         placeholder="Website"
                     />
 
-                    {/* Address (Spans 2 Columns) */}
                     <div className=" sm:col-span-2 col-span-1">
                         <textarea
                             name='address'
@@ -74,7 +72,6 @@ const CreateUser = ({ setShowModel, userData, setUserData, handleSubmit }) => {
                     </div>
                 </div>
 
-                {/* Button (Spans 2 Columns) */}
                 <div className="col-span-2 mt-4 flex justify-center">
                     <Button onClick={submit}>Create</Button>
                 </div>

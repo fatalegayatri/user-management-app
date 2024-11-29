@@ -9,6 +9,10 @@ const CreateUser = ({ setShowModel, userData, setUserData, handleSubmit }) => {
 
 
     }
+    const submit = (e) => {
+        handleSubmit(e);
+        setShowModel(false);
+    }
 
     return (
         <div className="bg-black/75 p-3 transition-all ease-in-out duration-75 inset-0 fixed z-10 flex items-center justify-center">
@@ -72,7 +76,7 @@ const CreateUser = ({ setShowModel, userData, setUserData, handleSubmit }) => {
 
                 {/* Button (Spans 2 Columns) */}
                 <div className="col-span-2 mt-4 flex justify-center">
-                    <Button onClick={handleSubmit}>Create</Button>
+                    <Button onClick={submit}>Create</Button>
                 </div>
             </div>
         </div>
